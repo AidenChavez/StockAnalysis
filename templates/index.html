@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>$tock</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+
+<body>
+    <h1>Welcome to $tock Analysis!</h1> 
+    <p>This website is for educational and informational purposes only.
+        Do not use this site to make financial decisions.
+    </p>
+
+    <form action="/analyze" method="POST">
+
+        <label for="symbol">Enter a stock symbol:</label>
+        <input type="text" id="symbol" name="symbol" required>
+        <button type="submit">Analyze</button>
+    </form>
+        
+        <h2>Analysis Results for {{ symbol }}</h2>
+        {% if results %}
+        <div class="stock-card">
+        
+            <div class="stock-header">
+
+                <h2>{{ symbol }}</h2>
+
+                <h1 class ="{{results.buyScoreColor}}">{{ results.buyScore }}</h1>
+
+                <h3 class="{{results.recommendationColor}}">{{ results.recommendation }}</h3>
+
+            </div>
+
+            <div class="section">
+
+                <div class="row">
+        
+                    <span class="label">Current Price</span>
+        
+                    <span class="value">${{ results.currentPrice }}</span>
+    
+                </div>
+
+    
+                <div class="row">
+        
+                    <span class="label">Today's Change</span>
+        
+                    <span class="{{results.percentChangeColor}}">{{ results.percentChange }}%</span>
+    
+                </div>
+
+            </div>
+
+            <div class="section">
+
+                <div class="row">
+    
+                    <span class="label">Revenue Growth</span>
+                    <span class="{{results.revenueGrowthColor}}">{{ results.revenueGrowth }}%</span>
+
+                </div>
+
+                <div class="row">
+
+                    <span class="label">ROE</span>
+                    <span class="{{results.roeColor}}">{{ results.roe }}%</span>
+    
+                </div>
+
+                <div class="row">
+    
+                    <span class="label">P/E Ratio</span>
+                    <span class="{{results.peRatioColor}}">{{ results.peRatio }}</span>
+
+                </div>
+
+                <div class="row">
+
+                    <span class="label">Current Ratio</span>
+                    <span class="{{results.currentRatioColor}}">{{ results.currentRatio }}</span>
+    
+                </div>
+
+                <div class="row">
+    
+                    <span class="label">Debt / Equity</span>        
+                    <span class="{{results.debtEquityRatioColor}}">{{ results.debtEquityRatio }}</span>
+    
+                </div>
+
+            </div>
+
+            <div class="section">
+
+                <div class="row">
+    
+                    <span class="label">52 Week High</span>
+                    <span class="value">${{ results.fiftoHigh }}</span>
+    
+                </div>
+
+                <div class="row">
+                    <span class="label">52 Week Low</span>
+                    <span class="value">${{ results.fiftoLow }}</span>
+
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    <hr>
+</body>
+</html>
