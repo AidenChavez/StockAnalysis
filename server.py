@@ -1,7 +1,7 @@
-import finnhub
+import finnhub, os
 
 def analyzeStock(symbol):
-    finnhubClient = finnhub.Client(api_key="d9cq10pr01qh8vpj47vgd9cq10pr01qh8vpj4800")
+    finnhubClient = finnhub.Client(api_key=os.environ.get("FINNHUB_API_KEY"))
 
     quote = finnhubClient.quote(symbol)
     currentPrice = round(quote['c'], 2)
