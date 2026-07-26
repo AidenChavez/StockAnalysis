@@ -37,7 +37,7 @@ def analyzeStock(symbol):
     buyScoreColor = ""
 
     revenueGrowthColor = "bad"
-    if revenueGrowth >= 20: #total of 20 points, weight of 250%
+    if revenueGrowth >= 20: #total of 20 points, weight of 20%
         buyScore += 20
         revenueGrowthColor = "great"
     elif revenueGrowth >= 10:
