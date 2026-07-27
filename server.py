@@ -12,8 +12,8 @@ def analyzeStock(symbol):
     data = finnhubClient.company_basic_financials(symbol, 'all')
 
 
-    fiftoHigh = f"{data["metric"]["52WeekHigh"]: .2f}"
-    fiftoLow = f"{data["metric"]["52WeekLow"] : .2f}"
+    fiftoHigh = round(data["metric"]["52WeekHigh"], 2)
+    fiftoLow = round(data["metric"]["52WeekLow"], 2)
     peRatio = round(data["metric"]["peTTM"], 2)
     roe = round(data["metric"]["roeTTM"], 2)
     revenueGrowth = round(data["metric"]["revenueGrowthTTMYoy"], 2)
