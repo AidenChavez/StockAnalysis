@@ -162,6 +162,7 @@ def analyzeStock(symbol):
 
     fiftoHigh = f"{fiftoHigh: .2f}" #forces two decimal places
     fiftoLow = f"{fiftoLow: .2f}"
+    currentPrice= f"{currentPrice: .2f}"
     return {
         
         "currentPrice": currentPrice,
