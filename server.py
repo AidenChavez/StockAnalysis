@@ -158,6 +158,10 @@ def analyzeStock(symbol):
 
     # keys for for variables for html file to use easily
     print("reached return statement")
+
+
+    fiftoHigh = f"{fiftoHigh: .2f}" #forces two decimal places
+    fiftoLow = f"{fiftoLow: .2f}"
     return {
         
         "currentPrice": currentPrice,
